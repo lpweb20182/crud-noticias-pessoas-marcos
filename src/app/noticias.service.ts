@@ -105,4 +105,27 @@ export class NoticiasService {
     };
     return this.http.post(this.API_URL, noticia, options);
   }
+
+  public editar(id: Number, titulo: string, resumo: string, conteudo: string, autor: any, data: string, publicada: boolean, destaque: boolean) {
+    const options = this.getHeaders();
+    const noticia = {
+      titulo: titulo,
+      resumo: resumo,
+      conteudo: conteudo,
+      autor: autor,
+      data: data,
+      publicada: publicada,
+      destaque: destaque
+    };
+    return this.http.put(this.API_URL+id+"/", noticia, options);
+  }
+
+  
+
+  public excluir(id: Number) {
+    const options = this.getHeaders();
+    
+    return this.http.delete(this.API_URL + id +"/", options);
+  }
+
 }

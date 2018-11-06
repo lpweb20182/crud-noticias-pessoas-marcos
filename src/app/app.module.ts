@@ -29,7 +29,7 @@ const rotas: Routes = [
       canActivate: [AutenticacaoGuard], 
       canActivateChild: [AutenticacaoGuard], 
       children: [
-      { path: 'noticias/cadastrar', component: AdminCadastrarNoticiaComponent },
+      { path: 'noticias/cadastrar/:id', component: AdminCadastrarNoticiaComponent, },
       { path: 'noticias', component: AdminNoticiasComponent },
       { path: '', component: AdminDashboardComponent }
     ]

@@ -9,10 +9,28 @@ import { Router } from '@angular/router';
 })
 export class AdminNoticiasComponent implements OnInit {
   noticias$ = null;
-  constructor(private service: NoticiasService, private router: Router) { }
+  constructor(private noticiaService: NoticiasService, private router: Router) { }
 
   ngOnInit() {
-    this.noticias$ = this.service.todas();
+    this.noticias$ = this.noticiaService.todas();
   }
+
+  
+
+  excluir(id){
+  this.noticiaService.excluir(id).subscribe(
+    noticia => {
+      this.noticias$ = this.noticiaService.todas();
+      
+    },
+    erro => {
+      console.log(erro);
+      
+    }
+  )
+  }
+
+
+  
 
 }
